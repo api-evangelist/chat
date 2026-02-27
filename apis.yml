@@ -1,0 +1,64 @@
+name: Chat API
+description: A conversational AI API for building chat applications and integrations
+image: https://example.com/images/chat-api-logo.png
+url: https://example.com/apis/chat
+created: '2024-01-15'
+modified: '2024-01-15'
+apis:
+- name: Chat API
+  description: REST API for managing conversations, messages, and chat sessions
+  image: https://example.com/images/chat-api-icon.png
+  humanUrl: https://example.com/apis/chat/docs
+  baseUrl: https://api.example.com/v1/chat
+  version: '1.0'
+  tags:
+  - chat
+  - messaging
+  - conversations
+  - AI
+  - natural language processing
+  properties:
+  - type: documentation
+    url: https://example.com/apis/chat/docs
+  - type: openapi
+    url: https://example.com/apis/chat/openapi.yaml
+  - type: authentication
+    url: https://example.com/apis/chat/docs/authentication
+  - type: rate-limits
+    url: https://example.com/apis/chat/docs/rate-limits
+  - type: pricing
+    url: https://example.com/pricing/chat
+  - type: terms-of-service
+    url: https://example.com/terms
+  - type: support
+    url: https://example.com/support
+  - type: signup
+    url: https://example.com/signup
+  - type: status
+    url: https://status.example.com
+  - type: changelog
+    url: https://example.com/apis/chat/changelog
+  - type: sdk
+    url: https://github.com/example/chat-api-sdk-python
+    language: Python
+  - type: sdk
+    url: https://github.com/example/chat-api-sdk-javascript
+    language: JavaScript
+  - type: postman-collection
+    url: https://example.com/apis/chat/postman-collection.json
+  contact:
+  - type: email
+    url: mailto:api-support@example.com
+  - type: twitter
+    url: https://twitter.com/exampleapi
+  - type: github
+    url: https://github.com/example/chat-api
+maintainers:
+- name: Example API Team
+  email: api-team@example.com
+  url: https://example.com/team
+tags:
+- name: conversational AI
+- name: chatbots
+- name: messaging platforms
+- name: customer support
