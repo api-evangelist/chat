@@ -14,11 +14,11 @@ apis:
     baseUrl: https://api.example.com/v1/chat
     version: '1.0'
     tags:
-      - chat
-      - messaging
-      - conversations
       - AI
-      - natural language processing
+      - Chat
+      - Conversations
+      - Messaging
+      - Natural Language Processing
     properties:
       - type: documentation
         url: https://example.com/apis/chat/docs
@@ -59,8 +59,4 @@ maintainers:
   - name: Example API Team
     email: api-team@example.com
     url: https://example.com/team
-tags:
-  - name: conversational AI
-  - name: chatbots
-  - name: messaging platforms
-  - name: customer support
+tags: []
