@@ -1,0 +1,90 @@
+name: chat-capabilities
+description: >-
+  Reference Naftiko sandbox capabilities for chat platforms. Concrete chat
+  vendor profiles in the catalog (Slack, Discord, Twilio Conversations,
+  Microsoft Teams, etc.) reuse this capability shape to expose conversation
+  and message tooling to agents.
+provider: chat
+version: '1.0'
+capabilities:
+  - id: chat.conversations.list
+    name: List conversations
+    description: List conversations available to the authenticated user.
+    operationId: listConversations
+    inputs:
+      - name: cursor
+        type: string
+        required: false
+      - name: limit
+        type: integer
+        required: false
+    outputs:
+      - name: conversations
+        type: array
+    tags: [conversations]
+  - id: chat.conversations.create
+    name: Create conversation
+    description: Create a new conversation with one or more participants.
+    operationId: createConversation
+    inputs:
+      - name: title
+        type: string
+        required: false
+      - name: participants
+        type: array
+        required: true
+    outputs:
+      - name: conversation
+        type: object
+    tags: [conversations]
+  - id: chat.messages.list
+    name: List messages
+    description: List messages within a conversation, paginated.
+    operationId: listMessages
+    inputs:
+      - name: conversationId
+        type: string
+        required: true
+      - name: cursor
+        type: string
+        required: false
+      - name: limit
+        type: integer
+        required: false
+    outputs:
+      - name: messages
+        type: array
+    tags: [messages]
+  - id: chat.messages.send
+    name: Send message
+    description: Send a message to a conversation.
+    operationId: sendMessage
+    inputs:
+      - name: conversationId
+        type: string
+        required: true
+      - name: content
+        type: string
+        required: true
+      - name: contentType
+        type: string
+        required: false
+    outputs:
+      - name: message
+        type: object
+    tags: [messages]
+  - id: chat.participants.add
+    name: Add participant
+    description: Add a participant to a conversation.
+    operationId: addParticipant
+    inputs:
+      - name: conversationId
+        type: string
+        required: true
+      - name: userId
+        type: string
+        required: true
+    outputs:
+      - name: participant
+        type: object
+    tags: [participants]

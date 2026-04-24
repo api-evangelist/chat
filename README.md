@@ -1,47 +1,53 @@
-# Chat API (chat)
-A conversational AI API for building chat applications and integrations
+# Chat (chat)
 
-**URL:** [Visit APIs.json URL](https://example.com/apis/chat)
+Topic-level profile capturing the Chat API category in the API Evangelist network. This profile defines a reference vocabulary and a generic OpenAPI shape for chat APIs that manage conversations, messages, and participants, and is used as a baseline when cataloguing chat platform APIs (such as Slack, Discord, Microsoft Teams, Twilio Conversations, and conversational AI platforms) into the broader catalogue.
 
-## Tags:
+**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/chat/refs/heads/main/apis.yml)
 
- - {'name': 'conversational AI'}, {'name': 'chatbots'}, {'name': 'messaging platforms'}, {'name': 'customer support'}
+## Scope
+
+- **Type:** Topic
+- **Position:** Reference
+- **Access:** 3rd-Party
+
+## Tags
+
+- Chat, Conversational AI, Conversations, Customer Support, Messaging, Real-time
 
 ## Timestamps
 
-- **Created:** 2024-01-15 
-- **Modified:** 2024-01-15 
+- **Created:** 2024-01-15
+- **Modified:** 2026-04-23
 
 ## APIs
 
-### Chat API
-REST API for managing conversations, messages, and chat sessions
+### Reference Chat API
 
-**Human URL:** [https://example.com/apis/chat/docs](https://example.com/apis/chat/docs)
+Reference REST API shape for chat platforms covering conversation lifecycle (create/list/get), message send and history, participant management, and typing indicator events. Intended as a vocabulary and OpenAPI baseline for cataloguing concrete chat platform APIs.
 
+- **Human URL:** [https://github.com/api-evangelist/chat](https://github.com/api-evangelist/chat)
+- **Base URL:** `https://api.example.com/v1/chat`
 
-#### Tags:
+#### Tags
 
- - chat, messaging, conversations, AI, natural language processing
+- Chat, Conversations, Messaging
 
 #### Properties
 
-- [documentation](https://example.com/apis/chat/docs)
-- [openapi](https://example.com/apis/chat/openapi.yaml)
-- [authentication](https://example.com/apis/chat/docs/authentication)
-- [rate-limits](https://example.com/apis/chat/docs/rate-limits)
-- [pricing](https://example.com/pricing/chat)
-- [terms-of-service](https://example.com/terms)
-- [support](https://example.com/support)
-- [signup](https://example.com/signup)
-- [status](https://status.example.com)
-- [changelog](https://example.com/apis/chat/changelog)
-- [sdk](https://github.com/example/chat-api-sdk-python)
-- [sdk](https://github.com/example/chat-api-sdk-javascript)
-- [postman-collection](https://example.com/apis/chat/postman-collection.json)
+- [OpenAPI](openapi/chat-reference-openapi.yml)
+- [Spectral](spectral/chat-spectral.yml)
+- [Naftiko Capabilities](naftiko/chat-capabilities.yml)
+
+## Common Properties
+
+- [Repository](https://github.com/api-evangelist/chat)
+- [APIs.json Catalog](https://apis.json/)
+- [JSON-LD Context](json-ld/chat-context.jsonld)
+- [Conversation JSON Schema](json-schema/chat-conversation-schema.json)
+- [Message JSON Schema](json-schema/chat-message-schema.json)
 
 ## Maintainers
 
-**FN:** Example API Team
+**FN:** Kin Lane
 
-**Email:** api-team@example.com
+**Email:** kin@apievangelist.com

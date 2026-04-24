@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apievangelist.com/schemas/chat/message.json",
+  "title": "Chat Message",
+  "type": "object",
+  "required": ["id", "content"],
+  "properties": {
+    "id": { "type": "string" },
+    "conversationId": { "type": "string" },
+    "senderId": { "type": "string" },
+    "content": { "type": "string" },
+    "contentType": {
+      "type": "string",
+      "enum": ["text", "markdown", "html"]
+    },
+    "sentAt": { "type": "string", "format": "date-time" },
+    "editedAt": { "type": "string", "format": "date-time" },
+    "metadata": { "type": "object" }
+  }
+}

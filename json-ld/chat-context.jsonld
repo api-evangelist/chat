@@ -1,0 +1,66 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "chat": "https://apievangelist.com/schemas/chat/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "Conversation": {
+      "@id": "chat:Conversation",
+      "@context": {
+        "id": "chat:id",
+        "title": "schema:name",
+        "createdAt": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "updatedAt": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:dateTime"
+        },
+        "participantIds": {
+          "@id": "chat:participantIds",
+          "@container": "@list"
+        }
+      }
+    },
+
+    "Message": {
+      "@id": "schema:Message",
+      "@context": {
+        "id": "chat:id",
+        "conversationId": "chat:conversationId",
+        "senderId": {
+          "@id": "schema:sender",
+          "@type": "@id"
+        },
+        "content": "schema:text",
+        "contentType": "chat:contentType",
+        "sentAt": {
+          "@id": "schema:dateSent",
+          "@type": "xsd:dateTime"
+        },
+        "editedAt": {
+          "@id": "chat:editedAt",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "Participant": {
+      "@id": "chat:Participant",
+      "@context": {
+        "userId": {
+          "@id": "schema:identifier",
+          "@type": "@id"
+        },
+        "role": "chat:role",
+        "joinedAt": {
+          "@id": "chat:joinedAt",
+          "@type": "xsd:dateTime"
+        }
+      }
+    }
+  }
+}

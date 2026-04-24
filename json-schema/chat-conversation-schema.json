@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apievangelist.com/schemas/chat/conversation.json",
+  "title": "Chat Conversation",
+  "type": "object",
+  "required": ["id"],
+  "properties": {
+    "id": { "type": "string" },
+    "title": { "type": "string" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" },
+    "participantIds": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}
