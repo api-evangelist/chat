@@ -10,7 +10,7 @@ description: >-
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 url: >-
   https://raw.githubusercontent.com/api-evangelist/chat/refs/heads/main/apis.yml
-type: Topic
+kind: topic
 access: 3rd-Party
 position: Reference
 tags:
