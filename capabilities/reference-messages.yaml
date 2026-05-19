@@ -1,0 +1,118 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Reference Chat API — Messages
+  description: 'Reference Chat API — Messages. 2 operations. Lead operation: List messages in a conversation. Self-contained
+    Naftiko capability covering one Chat business surface.'
+  tags:
+  - Chat
+  - Messages
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    CHAT_API_KEY: CHAT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: reference-messages
+    baseUri: https://api.example.com/v1/chat
+    description: Reference Chat API — Messages business capability. Self-contained, no shared references.
+    resources:
+    - name: conversations-conversationId-messages
+      path: /conversations/{conversationId}/messages
+      operations:
+      - name: listmessages
+        method: GET
+        description: List messages in a conversation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: cursor
+          in: query
+          type: string
+        - name: limit
+          in: query
+          type: integer
+      - name: sendmessage
+        method: POST
+        description: Send a message
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.CHAT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: reference-messages-rest
+    port: 8080
+    description: REST adapter for Reference Chat API — Messages. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/conversations/{conversationid}/messages
+      name: conversations-conversationid-messages
+      description: REST surface for conversations-conversationId-messages.
+      operations:
+      - method: GET
+        name: listmessages
+        description: List messages in a conversation
+        call: reference-messages.listmessages
+        with:
+          cursor: rest.cursor
+          limit: rest.limit
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: sendmessage
+        description: Send a message
+        call: reference-messages.sendmessage
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: reference-messages-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Reference Chat API — Messages. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: list-messages-conversation
+      description: List messages in a conversation
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: reference-messages.listmessages
+      with:
+        cursor: tools.cursor
+        limit: tools.limit
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: send-message
+      description: Send a message
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: reference-messages.sendmessage
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
