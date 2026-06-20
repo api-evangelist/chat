@@ -5,7 +5,7 @@ description: >-
   vocabulary and a generic OpenAPI shape for chat APIs that manage conversations, messages, and participants, and is
   used as a baseline when cataloguing chat platform APIs (such as Slack, Discord, Microsoft Teams, Twilio Conversations,
   and conversational AI platforms) into the broader catalogue.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/chat/refs/heads/main/apis.yml
 kind: topic
 access: 3rd-Party
@@ -27,7 +27,7 @@ apis:
       Reference REST API shape for chat platforms covering conversation lifecycle (create/list/get), message send and
       history, participant management, and typing indicator events. Intended as a vocabulary and OpenAPI baseline for
       cataloguing concrete chat platform APIs.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://github.com/api-evangelist/chat
     baseURL: https://api.example.com/v1/chat
     tags:
