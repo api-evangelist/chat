@@ -40,6 +40,8 @@ apis:
       - type: Spectral
         url: spectral/chat-spectral.yml
 common:
+  - type: Authentication
+    url: authentication/chat-authentication.yml
   - type: Repository
     url: https://github.com/api-evangelist/chat
   - type: Catalog
