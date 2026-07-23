@@ -1,0 +1,84 @@
+openapi: 3.1.0
+info:
+  title: Reference Chat Conversations Participants API
+  description: Reference OpenAPI definition describing the typical shape of a chat platform API. Captures the vocabulary used for conversations, messages, and participants and serves as a profiling baseline for cataloguing concrete chat platform APIs.
+  version: '1.0'
+  contact:
+    name: API Evangelist
+    url: https://apievangelist.com/
+servers:
+- url: https://api.example.com/v1/chat
+  description: Reference Production
+security:
+- bearerAuth: []
+tags:
+- name: Participants
+paths:
+  /conversations/{conversationId}/participants:
+    get:
+      operationId: listParticipants
+      summary: List participants
+      tags:
+      - Participants
+      parameters:
+      - $ref: '#/components/parameters/conversationId'
+      responses:
+        '200':
+          description: Participants list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Participant'
+    post:
+      operationId: addParticipant
+      summary: Add a participant
+      tags:
+      - Participants
+      parameters:
+      - $ref: '#/components/parameters/conversationId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - userId
+              properties:
+                userId:
+                  type: string
+      responses:
+        '201':
+          description: Participant added
+components:
+  schemas:
+    Participant:
+      type: object
+      required:
+      - userId
+      properties:
+        userId:
+          type: string
+        role:
+          type: string
+          enum:
+          - member
+          - admin
+          - guest
+        joinedAt:
+          type: string
+          format: date-time
+  parameters:
+    conversationId:
+      name: conversationId
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
