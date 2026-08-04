@@ -1,0 +1,250 @@
+openapi: 3.1.0
+info:
+  title: Reference Chat API
+  description: >-
+    Reference OpenAPI definition describing the typical shape of a chat
+    platform API. Captures the vocabulary used for conversations, messages,
+    and participants and serves as a profiling baseline for cataloguing
+    concrete chat platform APIs.
+  version: '1.0'
+  contact:
+    name: API Evangelist
+    url: https://apievangelist.com/
+servers:
+  - url: https://api.example.com/v1/chat
+    description: Reference Production
+tags:
+  - name: Conversations
+  - name: Messages
+  - name: Participants
+security:
+  - bearerAuth: []
+paths:
+  /conversations:
+    get:
+      operationId: listConversations
+      summary: List conversations
+      tags: [Conversations]
+      parameters:
+        - name: cursor
+          in: query
+          schema:
+            type: string
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 50
+      responses:
+        '200':
+          description: Conversations page
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  conversations:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Conversation'
+                  nextCursor:
+                    type: string
+    post:
+      operationId: createConversation
+      summary: Create a conversation
+      tags: [Conversations]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [participants]
+              properties:
+                title:
+                  type: string
+                participants:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '201':
+          description: Conversation created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Conversation'
+  /conversations/{conversationId}:
+    get:
+      operationId: getConversation
+      summary: Get a conversation
+      tags: [Conversations]
+      parameters:
+        - $ref: '#/components/parameters/conversationId'
+      responses:
+        '200':
+          description: Conversation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Conversation'
+  /conversations/{conversationId}/messages:
+    get:
+      operationId: listMessages
+      summary: List messages in a conversation
+      tags: [Messages]
+      parameters:
+        - $ref: '#/components/parameters/conversationId'
+        - name: cursor
+          in: query
+          schema:
+            type: string
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 50
+      responses:
+        '200':
+          description: Messages page
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  messages:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Message'
+                  nextCursor:
+                    type: string
+    post:
+      operationId: sendMessage
+      summary: Send a message
+      tags: [Messages]
+      parameters:
+        - $ref: '#/components/parameters/conversationId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [content]
+              properties:
+                content:
+                  type: string
+                contentType:
+                  type: string
+                  enum: [text, markdown, html]
+                metadata:
+                  type: object
+      responses:
+        '201':
+          description: Message sent
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+  /conversations/{conversationId}/participants:
+    get:
+      operationId: listParticipants
+      summary: List participants
+      tags: [Participants]
+      parameters:
+        - $ref: '#/components/parameters/conversationId'
+      responses:
+        '200':
+          description: Participants list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Participant'
+    post:
+      operationId: addParticipant
+      summary: Add a participant
+      tags: [Participants]
+      parameters:
+        - $ref: '#/components/parameters/conversationId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [userId]
+              properties:
+                userId:
+                  type: string
+      responses:
+        '201':
+          description: Participant added
+components:
+  parameters:
+    conversationId:
+      name: conversationId
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    Conversation:
+      type: object
+      required: [id]
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        participantIds:
+          type: array
+          items:
+            type: string
+    Message:
+      type: object
+      required: [id, content]
+      properties:
+        id:
+          type: string
+        conversationId:
+          type: string
+        senderId:
+          type: string
+        content:
+          type: string
+        contentType:
+          type: string
+          enum: [text, markdown, html]
+        sentAt:
+          type: string
+          format: date-time
+        editedAt:
+          type: string
+          format: date-time
+        metadata:
+          type: object
+    Participant:
+      type: object
+      required: [userId]
+      properties:
+        userId:
+          type: string
+        role:
+          type: string
+          enum: [member, admin, guest]
+        joinedAt:
+          type: string
+          format: date-time

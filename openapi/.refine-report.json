@@ -1,0 +1,18 @@
+{
+  "provider": "chat",
+  "sources": [
+    "chat-conversations-api-openapi.yml",
+    "chat-messages-api-openapi.yml",
+    "chat-participants-api-openapi.yml"
+  ],
+  "outputs": [
+    "chat-conversations-api-openapi.yml",
+    "chat-messages-api-openapi.yml",
+    "chat-participants-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
