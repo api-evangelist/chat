@@ -71,6 +71,8 @@ apis:
   - type: Spectral
     url: spectral/chat-spectral.yml
 common:
+  - type: IssueTracker
+    url: https://github.com/api-evangelist/chat/issues
   - type: AgenticAccess
     url: agentic-access/chat-agentic-access.yml
   - type: Authentication
