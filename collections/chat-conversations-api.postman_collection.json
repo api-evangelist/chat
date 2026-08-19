@@ -1,0 +1,325 @@
+{
+  "item": [
+    {
+      "id": "0af288c8-c336-4cb0-ac25-f4a1c27e5a79",
+      "name": "Conversations",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "41b7b709-23dd-4722-9b95-56990644992d",
+          "name": "List conversations",
+          "request": {
+            "name": "List conversations",
+            "description": {},
+            "url": {
+              "path": [
+                "conversations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e9906218-603e-4ca8-ad05-d5b2a2488055",
+              "name": "Conversations page",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "conversations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"conversations\": [\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"createdAt\": \"1979-03-24T21:02:16.133Z\",\n      \"updatedAt\": \"1975-11-12T01:24:37.755Z\",\n      \"participantIds\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"createdAt\": \"2017-08-06T23:48:03.278Z\",\n      \"updatedAt\": \"2011-10-23T03:19:38.275Z\",\n      \"participantIds\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"nextCursor\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "307b5bdd-2001-41a0-866c-2d5428fde89d",
+          "name": "Create a conversation",
+          "request": {
+            "name": "Create a conversation",
+            "description": {},
+            "url": {
+              "path": [
+                "conversations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"participants\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f82d1f03-055b-423d-b56b-18f7683cad59",
+              "name": "Conversation created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "conversations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"participants\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"title\": \"string\",\n  \"createdAt\": \"1990-04-18T22:23:22.112Z\",\n  \"updatedAt\": \"1986-11-04T05:27:56.414Z\",\n  \"participantIds\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6333b484-1bf1-462d-ad92-489ea3bd00d4",
+          "name": "Get a conversation",
+          "request": {
+            "name": "Get a conversation",
+            "description": {},
+            "url": {
+              "path": [
+                "conversations",
+                ":conversationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "conversationId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2bb8fdb1-054f-4484-8fd7-37bcc4d20f35",
+              "name": "Conversation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "conversations",
+                    ":conversationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "conversationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"title\": \"string\",\n  \"createdAt\": \"1990-04-18T22:23:22.112Z\",\n  \"updatedAt\": \"1986-11-04T05:27:56.414Z\",\n  \"participantIds\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.example.com/v1/chat",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "08e8b15b-7afa-4d1a-94dd-15b2928bd513",
+    "name": "Reference Chat Conversations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reference OpenAPI definition describing the typical shape of a chat platform API. Captures the vocabulary used for conversations, messages, and participants and serves as a profiling baseline for cataloguing concrete chat platform APIs.\n\nContact Support:\n Name: API Evangelist",
+      "type": "text/plain"
+    }
+  }
+}

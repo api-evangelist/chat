@@ -1,0 +1,272 @@
+{
+  "item": [
+    {
+      "id": "ff83f215-3370-445a-b4bd-fdf5599004f8",
+      "name": "Messages",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "87f75cb1-a90e-40cd-968e-d485e1e0baa8",
+          "name": "List messages in a conversation",
+          "request": {
+            "name": "List messages in a conversation",
+            "description": {},
+            "url": {
+              "path": [
+                "conversations",
+                ":conversationId",
+                "messages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "conversationId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "54a51989-5eef-4d61-9a17-b8f07b046af9",
+              "name": "Messages page",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "conversations",
+                    ":conversationId",
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "conversationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"id\": \"string\",\n      \"content\": \"string\",\n      \"conversationId\": \"string\",\n      \"senderId\": \"string\",\n      \"contentType\": \"text\",\n      \"sentAt\": \"2023-10-06T10:19:15.379Z\",\n      \"editedAt\": \"1961-12-08T03:29:28.397Z\",\n      \"metadata\": {}\n    },\n    {\n      \"id\": \"string\",\n      \"content\": \"string\",\n      \"conversationId\": \"string\",\n      \"senderId\": \"string\",\n      \"contentType\": \"html\",\n      \"sentAt\": \"1952-06-29T12:52:17.351Z\",\n      \"editedAt\": \"1965-08-26T19:35:37.388Z\",\n      \"metadata\": {}\n    }\n  ],\n  \"nextCursor\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ea758e60-1cb6-456c-9135-a11505b3b0c3",
+          "name": "Send a message",
+          "request": {
+            "name": "Send a message",
+            "description": {},
+            "url": {
+              "path": [
+                "conversations",
+                ":conversationId",
+                "messages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "conversationId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"content\": \"<string>\",\n  \"contentType\": \"<string>\",\n  \"metadata\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "611aa246-33dc-43a4-a690-4d341a62e879",
+              "name": "Message sent",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "conversations",
+                    ":conversationId",
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "conversationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"content\": \"<string>\",\n  \"contentType\": \"<string>\",\n  \"metadata\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"content\": \"string\",\n  \"conversationId\": \"string\",\n  \"senderId\": \"string\",\n  \"contentType\": \"markdown\",\n  \"sentAt\": \"2017-02-07T22:22:54.169Z\",\n  \"editedAt\": \"1974-10-18T21:21:23.972Z\",\n  \"metadata\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.example.com/v1/chat",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d6d2069d-f66f-483c-bbbf-52ae9082c6fb",
+    "name": "Reference Chat Conversations Messages API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reference OpenAPI definition describing the typical shape of a chat platform API. Captures the vocabulary used for conversations, messages, and participants and serves as a profiling baseline for cataloguing concrete chat platform APIs.\n\nContact Support:\n Name: API Evangelist",
+      "type": "text/plain"
+    }
+  }
+}

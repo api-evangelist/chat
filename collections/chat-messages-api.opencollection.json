@@ -1,0 +1,74 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reference Chat Conversations Messages API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Messages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List messages in a conversation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.example.com/v1/chat/conversations/:conversationId/messages",
+            "params": [
+              {
+                "name": "conversationId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List messages in a conversation"
+        },
+        {
+          "info": {
+            "name": "Send a message",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.example.com/v1/chat/conversations/:conversationId/messages",
+            "params": [
+              {
+                "name": "conversationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send a message"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

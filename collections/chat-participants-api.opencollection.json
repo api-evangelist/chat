@@ -1,0 +1,64 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reference Chat Conversations Participants API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Participants",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List participants",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.example.com/v1/chat/conversations/:conversationId/participants",
+            "params": [
+              {
+                "name": "conversationId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List participants"
+        },
+        {
+          "info": {
+            "name": "Add a participant",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.example.com/v1/chat/conversations/:conversationId/participants",
+            "params": [
+              {
+                "name": "conversationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a participant"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
