@@ -27,6 +27,13 @@ tags:
   - Chat
   - Conversational AI
   - Conversations
+  - Customer-Support
+  - Messaging
+  - Real-Time
+tags_raw:
+  - Chat
+  - Conversational AI
+  - Conversations
   - Customer Support
   - Messaging
   - Real-time
@@ -52,6 +59,8 @@ apis:
   humanURL: https://github.com/api-evangelist/chat
   baseURL: https://api.example.com/v1/chat
   tags:
+  - Message
+  tags_raw:
   - Messages
   properties:
   - type: OpenAPI
