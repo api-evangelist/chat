@@ -5,6 +5,18 @@ description: >-
   vocabulary and a generic OpenAPI shape for chat APIs that manage conversations, messages, and participants, and is
   used as a baseline when cataloguing chat platform APIs (such as Slack, Discord, Microsoft Teams, Twilio Conversations,
   and conversational AI platforms) into the broader catalogue.
+deliveryModel:
+  model: unknown
+  open_source: unknown
+  commercial: false
+  callable_host: false
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  - repository-unlicensed
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
