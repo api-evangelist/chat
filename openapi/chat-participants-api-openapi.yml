@@ -53,6 +53,13 @@ paths:
         '201':
           description: Participant added
 components:
+  parameters:
+    conversationId:
+      name: conversationId
+      in: path
+      required: true
+      schema:
+        type: string
   schemas:
     Participant:
       type: object
@@ -70,13 +77,6 @@ components:
         joinedAt:
           type: string
           format: date-time
-  parameters:
-    conversationId:
-      name: conversationId
-      in: path
-      required: true
-      schema:
-        type: string
   securitySchemes:
     bearerAuth:
       type: http

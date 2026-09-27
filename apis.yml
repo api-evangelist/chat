@@ -7,6 +7,9 @@ description: >-
   and conversational AI platforms) into the broader catalogue.
 deliveryModel:
   model: unknown
+  license_evidence:
+    not_product:
+    - api-evangelist/chat
   open_source: unknown
   commercial: false
   callable_host: false
@@ -14,8 +17,8 @@ deliveryModel:
   confidence: low
   source:
   - openapi
-  - repository-unlicensed
-  generated: '2026-08-28'
+  - repository-not-product
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: freemium
@@ -40,7 +43,7 @@ tags:
   - Chat
   - Conversational AI
   - Conversations
-  - Customer-Support
+  - Customer Support
   - Messaging
   - Real-Time
 tags_raw:
@@ -50,6 +53,7 @@ tags_raw:
   - Customer Support
   - Messaging
   - Real-time
+  - Customer-Support
 created: '2024-01-15'
 modified: '2026-05-19'
 specificationVersion: '0.23'

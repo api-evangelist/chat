@@ -79,13 +79,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/Message'
 components:
-  parameters:
-    conversationId:
-      name: conversationId
-      in: path
-      required: true
-      schema:
-        type: string
   schemas:
     Message:
       type: object
@@ -115,6 +108,13 @@ components:
           format: date-time
         metadata:
           type: object
+  parameters:
+    conversationId:
+      name: conversationId
+      in: path
+      required: true
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http
