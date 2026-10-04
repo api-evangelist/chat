@@ -87,13 +87,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/Conversation'
 components:
-  parameters:
-    conversationId:
-      name: conversationId
-      in: path
-      required: true
-      schema:
-        type: string
   schemas:
     Conversation:
       type: object
@@ -114,6 +107,13 @@ components:
           type: array
           items:
             type: string
+  parameters:
+    conversationId:
+      name: conversationId
+      in: path
+      required: true
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http
